@@ -1,2 +1,3 @@
-# actividades-algoritmos-y-complejidad
-Actividades en equipos de 2 personas para la materia "Algoritmos y Complejidad"
+# Algoritmos y Complejidad
+
+Actividades de la materia "Algoritmos y Complejidad" en equipos de 2 personas.
