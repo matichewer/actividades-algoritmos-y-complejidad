@@ -32,4 +32,5 @@ for test_file in test_files:
         # imprime el mensaje de error si hay una discrepancia
         print("--------------------------------------------")
         print(f"Error en {test_file}\nOutput de la solucion:\n{output_str}")
+        print("--------------------------------------------")
     
