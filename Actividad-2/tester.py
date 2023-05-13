@@ -2,7 +2,7 @@ import subprocess
 import glob
 
 # Encuentra todos los archivos de prueba en la carpeta actual
-test_files = glob.glob("test-*.txt")
+test_files = glob.glob("tests/test-*.txt")
 test_files = sorted(test_files)
 
 for test_file in test_files:
