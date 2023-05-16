@@ -123,7 +123,8 @@ public class Patience {
 	}
 */
 
-	public static int[] lis(int arr[], int n) {
+	public static int[] lis(List<Par> lista_expansiones, int n) {
+
         int lis[] = new int[n];
         int pos[] = new int[n];
         int i, j, max = 0, maxIndex = -1;
@@ -135,7 +136,11 @@ public class Patience {
 
         for (i = 1; i < n; i++) {
             for (j = 0; j < i; j++) {
-                if (arr[i] > arr[j] && lis[i] < lis[j] + 1) {
+				Par par_i = lista_expansiones.get(i);
+				Par par_j = lista_expansiones.get(j);
+                if (par_i.getLargo() > par_j.getLargo() 
+						&& (par_i.getAncho() != par_j.getAncho())
+						&& lis[i] < lis[j] + 1) {
                     lis[i] = lis[j] + 1;
                     pos[i] = j;
                 }
@@ -176,6 +181,12 @@ public class Patience {
 		Collections.sort(lista_expansiones);
 		System.out.println(lista_expansiones);
 		// FIN LECTURA DATOS
+
+		int resultado [] = lis(lista_expansiones, lista_expansiones.size());
+		System.out.println(resultado.length);
+		for (int numero : resultado) {
+            System.out.print(numero + " ");
+        }
 
 
 
