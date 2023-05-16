@@ -125,8 +125,8 @@ class Tupla implements Comparable<Tupla>{
 }
 
 
-class TuplasComparator implements Comparator<Tupla> {
-    public int compare(Tupla t1, Tupla t2) {
-        return t1.compareTo(t2);
+    class TuplasComparator implements Comparator<Tupla> {
+        public int compare(Tupla t1, Tupla t2) {
+            return t1.compareTo(t2);
+        }
     }
-}
