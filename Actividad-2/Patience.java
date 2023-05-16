@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Patience {
-
+/*
 	// Function to merge piles in a sorted order
 	public static List<Integer>
 	mergePiles(List<List<Integer> > v)
@@ -64,7 +64,6 @@ public class Patience {
 		// Store all the created piles
 		List<List<Par>> pilas = new ArrayList<List<Par> >();
 		
-
 		// recorro las expansiones
 		for (int i=1; i < lista_expansiones.size(); i++) {
 			
@@ -122,20 +121,42 @@ public class Patience {
 
 		return ans;
 	}
+*/
+
+	public static int[] lis(int arr[], int n) {
+        int lis[] = new int[n];
+        int pos[] = new int[n];
+        int i, j, max = 0, maxIndex = -1;
+
+        for (i = 0; i < n; i++) {
+            lis[i] = 1;
+            pos[i] = -1;
+        }
+
+        for (i = 1; i < n; i++) {
+            for (j = 0; j < i; j++) {
+                if (arr[i] > arr[j] && lis[i] < lis[j] + 1) {
+                    lis[i] = lis[j] + 1;
+                    pos[i] = j;
+                }
+            }
+            if (max < lis[i]) {
+                max = lis[i];
+                maxIndex = i;
+            }
+        }
+
+        int[] result = new int[max];
+        for (i = max - 1; i >= 0; i--) {
+            result[i] = maxIndex;
+            maxIndex = pos[maxIndex];
+        }
+
+        return result;
+    }
 
 	
 	public static void main(String[] args){
-		/*
-		List<Integer> arr = new ArrayList<Integer>();
-		arr.add(6);
-		arr.add(12);
-		arr.add(2);
-		arr.add(8);
-		arr.add(3);
-		arr.add(7);
-
-		patienceSorting(arr);
-		*/
 
 		// LEO DATOS
 		Scanner sc = new Scanner(System.in);
@@ -151,6 +172,7 @@ public class Patience {
 			}
 		}
 		sc.close();
+		//System.out.println(lista_expansiones);
 		Collections.sort(lista_expansiones);
 		System.out.println(lista_expansiones);
 		// FIN LECTURA DATOS
@@ -195,11 +217,17 @@ class Par implements Comparable<Par>{
 	// p1.compareTo(p2) = 1 = p1.ancho > p2.ancho
 	@Override
 	public int compareTo(Par par) {
-		if(this.getAncho()>par.getAncho())
-			return 1;
-		else 
-			return -1;
-		
+		if(this.getAncho() != par.getAncho()){
+			if(this.getAncho()>par.getAncho())
+				return 1;
+			else 
+				return -1;
+		} else {
+			if(this.getLargo() < par.getLargo())
+				return 1;
+			else
+				return -1;
+		}
 	}	
 
     @Override
