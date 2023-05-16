@@ -2,7 +2,7 @@ def max_expansions(n, W, L, plans):
     # Filtrar y ordenar los planes de expansión
     valid_plans = [(w, l, i) for i, (w, l) in enumerate(plans) if w > W and l > L]
     valid_plans.sort()
-
+    print(*valid_plans)
     # Inicializar la tabla de programación dinámica
     dp = [1] * len(valid_plans)
     prev = [-1] * len(valid_plans)
@@ -12,6 +12,9 @@ def max_expansions(n, W, L, plans):
     max_index = -1
     for i in range(len(valid_plans)):
         for j in range(i):
+            #print(f"{i},{j}")
+            # Chequeo que el siguiente plan se pueda aplicar
+            # es decir, que el ancho y largo sean mas grandes que el plan anterior
             if valid_plans[j][0] < valid_plans[i][0] and valid_plans[j][1] < valid_plans[i][1]:
                 if dp[j] + 1 > dp[i]:
                     dp[i] = dp[j] + 1

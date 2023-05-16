@@ -21,7 +21,7 @@ for test_file in test_files:
         expected_output.append(line.strip())
 
     # Ejecuta el script de solución y envíale el input del archivo de prueba
-    p = subprocess.Popen(['python', 'solucion2.py'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    p = subprocess.Popen(['python', 'rodri-python.py'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
     input_str = ''.join(input_lines)
     output_str = p.communicate(input=input_str.encode())[0].decode()
 
