@@ -1,5 +1,8 @@
 import java.util.*;
 
+// O(n²)
+
+
 public class LIS {
 
 	public static int[] lis(List<Tupla> lista_expansiones, int n) {

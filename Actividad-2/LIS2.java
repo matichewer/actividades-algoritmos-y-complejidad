@@ -3,6 +3,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.*;
 
+
+// O(n log n)
+// parece funcionar pero no lo subimos al Codeforces
+
 public class LIS2 {
 
     public static List<Integer> lis(List<Tupla> arr) {

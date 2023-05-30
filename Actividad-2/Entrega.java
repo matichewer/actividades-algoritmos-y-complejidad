@@ -1,5 +1,8 @@
 import java.util.*;
 
+// O(n²)
+
+
 public class Entrega {
 
 	public static void main(String Args[]) {
