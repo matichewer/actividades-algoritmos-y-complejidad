@@ -1,34 +1,43 @@
 import java.util.Scanner;
 
 public class Main {
-    public static int countIntersections(int n, int[] cables) {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        int t = scanner.nextInt();
+
+        // System.out.println("t original= " + t);
+        while (t-- > 0) {
+            int n = scanner.nextInt();
+            int[] a = new int[n];
+            for (int i = 0; i < n; i++) {
+                a[i] = scanner.nextInt();
+            }
+
+            /*
+             * System.out.print("t=" + t + ", n=" + n + ", arreglo = [ ");
+             * for (int i = 0; i < a.length; i++) {
+             * System.out.print(a[i] + " ");
+             * }
+             * System.out.println("]");
+             */
+            System.out.println(calcIntersecciones(n, a));
+        }
+        scanner.close();
+    }
+
+    public static int calcIntersecciones(int n, int[] a) {
         int intersections = 0;
 
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
-                if (cables[i] > cables[j]) {
+                if (a[i] >= a[j]) {
                     intersections++;
                 }
             }
         }
+
         return intersections;
-    }
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int t = scanner.nextInt();
-
-        for (int i = 0; i < t; i++) {
-            int n = scanner.nextInt();
-            int[] cables = new int[n];
-
-            for (int j = 0; j < n; j++) {
-                cables[j] = scanner.nextInt();
-            }
-
-            int intersections = countIntersections(n, cables);
-            System.out.println(intersections);
-        }
-
     }
 }
