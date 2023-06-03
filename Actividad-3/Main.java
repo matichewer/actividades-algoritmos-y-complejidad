@@ -7,7 +7,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int t = scanner.nextInt();
 
-        // System.out.println("t original= " + t);
         while (t-- > 0) {
             int n = scanner.nextInt();
             int[] a = new int[n];
@@ -15,13 +14,6 @@ public class Main {
                 a[i] = scanner.nextInt();
             }
 
-            /*
-             * System.out.print("t=" + t + ", n=" + n + ", arreglo = [ ");
-             * for (int i = 0; i < a.length; i++) {
-             * System.out.print(a[i] + " ");
-             * }
-             * System.out.println("]");
-             */
             System.out.println(calcIntersecciones(n, a));
         }
         scanner.close();
